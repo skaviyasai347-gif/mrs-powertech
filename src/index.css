@@ -412,3 +412,228 @@ body {
   overflow:hidden;
 
 }
+/* ===========================================================
+   ADMIN PANEL THEME (ONLY ADMIN)
+=========================================================== */
+
+.admin-theme {
+  background: #090909;
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+/* Login Background */
+
+.admin-theme .glass,
+.admin-theme .glass-strong,
+.admin-theme .glass-dark {
+  background: #111111 !important;
+  border: 1px solid rgba(212, 175, 55, 0.35) !important;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  color: white !important;
+}
+
+/* Cards */
+
+.admin-theme .card-luxury {
+  background: #111111 !important;
+  color: white !important;
+  border: 1px solid rgba(212,175,55,.25);
+  border-radius: 18px;
+}
+
+.admin-theme .card-luxury:hover{
+  border-color:#D4AF37;
+  box-shadow:0 15px 40px rgba(212,175,55,.18);
+}
+
+/* Inputs */
+
+.admin-theme input,
+.admin-theme textarea,
+.admin-theme select{
+
+  background:#050505 !important;
+  color:white !important;
+
+  border:1px solid rgba(212,175,55,.35) !important;
+
+}
+
+.admin-theme input::placeholder,
+.admin-theme textarea::placeholder{
+
+  color:#9ca3af !important;
+
+}
+
+.admin-theme input:focus,
+.admin-theme textarea:focus,
+.admin-theme select:focus{
+
+  border-color:#D4AF37 !important;
+
+  outline:none;
+
+  box-shadow:0 0 0 3px rgba(212,175,55,.18);
+
+}
+
+/* Labels */
+
+.admin-theme label{
+
+  color:#FFD54A !important;
+
+  font-weight:600;
+
+}
+
+/* Headings */
+
+.admin-theme h1,
+.admin-theme h2,
+.admin-theme h3,
+.admin-theme h4,
+.admin-theme h5{
+
+  color:white !important;
+
+}
+
+/* Paragraphs */
+
+.admin-theme p{
+
+  color:#d1d5db;
+
+}
+
+/* Table */
+
+.admin-theme table{
+
+  color:white;
+
+}
+
+.admin-theme thead{
+
+  background:#0b0b0b;
+
+}
+
+.admin-theme th{
+
+  color:#FFD54A;
+
+  font-weight:700;
+
+  border-bottom:1px solid rgba(212,175,55,.25);
+
+}
+
+.admin-theme td{
+
+  color:white;
+
+  border-bottom:1px solid rgba(255,255,255,.06);
+
+}
+
+.admin-theme tr:hover{
+
+  background:rgba(212,175,55,.05);
+
+}
+
+/* Buttons */
+
+.admin-theme .btn-gold{
+
+  color:black;
+
+}
+
+.admin-theme .btn-outline-gold{
+
+  background:#111111;
+
+  color:#D4AF37;
+
+  border:1px solid #D4AF37;
+
+}
+
+.admin-theme .btn-outline-gold:hover{
+
+  background:#D4AF37;
+
+  color:black;
+
+}
+
+/* Links */
+
+.admin-theme a{
+
+  color:#FFD54A;
+
+}
+
+.admin-theme a:hover{
+
+  color:#FFE27A;
+
+}
+
+/* Icons */
+
+.admin-theme svg{
+
+  color:inherit;
+
+}
+
+/* React Hook Form Errors */
+
+.admin-theme .text-red-400{
+
+  color:#ff6b6b !important;
+
+}
+
+/* White Utility */
+
+.admin-theme .text-white\/40{
+
+  color:#d1d5db !important;
+
+}
+
+.admin-theme .text-white\/50{
+
+  color:#e5e7eb !important;
+
+}
+
+.admin-theme .text-white\/60{
+
+  color:#f3f4f6 !important;
+
+}
+
+/* Gold */
+
+.admin-theme .text-gold{
+
+  color:#D4AF37 !important;
+
+}
+
+.admin-theme .bg-gold{
+
+  background:#D4AF37 !important;
+
+}
