@@ -8,17 +8,25 @@ import CTABanner from '../components/sections/CTABanner'
 const CHENNAI_AREAS = ['Ambattur', 'Anna Nagar', 'Porur', 'Velachery', 'T. Nagar', 'Adyar', 'Tambaram', 'Other']
 
 export default function Calculator() {
-  const [monthlyBill, setMonthlyBill] = useState('')
+  const [monthlyUnits, setMonthlyUnits] = useState('')
   const [location, setLocation] = useState('Ambattur')
   const [connectionType, setConnectionType] = useState('Residential')
   const [result, setResult] = useState(null)
 
   const onCalculate = (e) => {
-    e.preventDefault()
-    const bill = Number(monthlyBill)
-    if (!bill || bill <= 0) return
-    setResult(calculateSolarPlan({ monthlyBill: bill, connectionType }))
-  }
+  e.preventDefault()
+
+  const units = Number(monthlyUnits)
+
+  if (!units || units <= 0) return
+
+  setResult(
+    calculateSolarPlan({
+      monthlyUnits: units,
+      connectionType,
+    })
+  )
+}
 
   const cards = result
     ? [
@@ -37,15 +45,21 @@ export default function Calculator() {
     <>
       <section className="section-pad">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow="Plan Your Savings" title="Solar Savings Calculator" subtitle="Enter your monthly electricity bill to get an instant, indicative solar sizing and savings estimate." />
+          <SectionHeading eyebrow="Plan Your Savings" title="Solar Savings Calculator" subtitle="Enter your monthly electricity consumption (units) to get an instant, indicative solar sizing and savings estimate." />
 
           <form onSubmit={onCalculate} className="card-luxury p-7 sm:p-10 grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
             <div>
-              <label className="text-xs uppercase tracking-wide text-white/50 mb-2 block">Monthly EB Bill (\u20b9)</label>
-              <input
-                type="number" min="1" required value={monthlyBill}
-                onChange={(e) => setMonthlyBill(e.target.value)}
-                placeholder="e.g. 3500"
+              <label className="text-xs uppercase tracking-wide text-white/50 mb-2 block">
+  Monthly Electricity Consumption (Units)
+</label>
+
+<input
+  type="number"
+  min="1"
+  required
+  value={monthlyUnits}
+  onChange={(e) => setMonthlyUnits(e.target.value)}
+  placeholder="e.g. 450"
                 className="w-full bg-ink-900 border border-gold/15 rounded-xl px-4 py-3 text-sm outline-none focus:border-gold/50"
               />
             </div>

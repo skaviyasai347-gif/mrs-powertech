@@ -3,7 +3,7 @@ export const COMPANY = {
   tagline: 'Empowering Life with Solar',
   address: 'No.105 Prithivipakkam Main Road, Ambattur, Chennai - 53',
   addressNote: 'Opposite LIC Zonal Office',
-  phones: ['9382233599', '9444404005'],
+  phones: ['9444404005','9382233599', ],
   email: 'mrspowertech2026@gmail.com',
   mapEmbed:
     'https://www.google.com/maps?q=No.105+Prithivipakkam+Main+Road+Ambattur+Chennai+53&output=embed'
