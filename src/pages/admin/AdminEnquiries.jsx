@@ -52,24 +52,24 @@ export default function AdminEnquiries() {
       <div className="card-luxury overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
-            <tr className="text-left text-white/40 border-b border-white/10">
+            <tr className="text-left text-black/40 border-b border-black/10">
               <th className="p-4">Name</th><th className="p-4">Phone</th><th className="p-4">Product / Source</th><th className="p-4">Date</th><th className="p-4">Actions</th>
             </tr>
           </thead>
           <tbody>
             {loading ? (
-              <tr><td colSpan={5} className="p-6 text-center text-white/40">Loading...</td></tr>
+              <tr><td colSpan={5} className="p-6 text-center text-black/40">Loading...</td></tr>
             ) : enquiries.length === 0 ? (
-              <tr><td colSpan={5} className="p-6 text-center text-white/40">No enquiries yet.</td></tr>
+              <tr><td colSpan={5} className="p-6 text-center text-black/40">No enquiries yet.</td></tr>
             ) : enquiries.map((e) => (
-              <tr key={e.id} className="border-b border-white/5 align-top">
+              <tr key={e.id} className="border-b border-black/5 align-top">
                 <td className="p-4 font-medium">{e.name}</td>
-                <td className="p-4 text-white/60">{e.phone}</td>
-                <td className="p-4 text-white/60">
-                  {e.product_name || <span className="italic text-white/30">{e.source}</span>}
-                  {e.message && <p className="text-white/40 text-xs mt-1 max-w-xs">{e.message}</p>}
+                <td className="p-4 text-black/60">{e.phone}</td>
+                <td className="p-4 text-black/60">
+                  {e.product_name || <span className="italic text-black/30">{e.source}</span>}
+                  {e.message && <p className="text-black/40 text-xs mt-1 max-w-xs">{e.message}</p>}
                 </td>
-                <td className="p-4 text-white/40 text-xs">{new Date(e.created_at).toLocaleString('en-IN')}</td>
+                <td className="p-4 text-black/40 text-xs">{new Date(e.created_at).toLocaleString('en-IN')}</td>
                 <td className="p-4 flex gap-2">
                   {e.email && <a href={`mailto:${e.email}`} className="text-gold"><Mail size={16} /></a>}
                   <button onClick={() => deleteEnquiry(e.id)} className="text-red-400"><Trash2 size={16} /></button>
