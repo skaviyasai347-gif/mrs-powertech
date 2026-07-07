@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ChevronDown, Sun } from 'lucide-react'
@@ -5,27 +6,38 @@ import AnimatedCounter from '../ui/AnimatedCounter'
 import { STATS } from '../../data/siteData'
 
 export default function Hero() {
+  const heroImages = [
+    '/hero1.jpeg',
+    '/hero2.jpeg',
+    '/hero3.jpeg',
+  ]
+
+  const [currentImage, setCurrentImage] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % heroImages.length)
+    }, 5000)
+
+    return () => clearInterval(interval)
+  }, [])
+
   return (
     <section className="relative min-h-[92vh] flex flex-col justify-center overflow-hidden">
 
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat brightness-125 contrast-110 saturate-125"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "url('/hero-solar.png')",
+          backgroundImage: `url(${heroImages[currentImage]})`,
+          filter: 'brightness(0.75) contrast(1.08)',
         }}
       />
-
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/35" />
-
-      {/* Premium Black & Gold Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/25 to-transparent" />
 
       {/* Decorative Sun */}
       <motion.div
         initial={{ opacity: 0, rotate: -8, scale: 0.9 }}
-        animate={{ opacity: 0.2, rotate: 0, scale: 1 }}
+        animate={{ opacity: 0.15, rotate: 0, scale: 1 }}
         transition={{ duration: 1.6, ease: 'easeOut' }}
         className="absolute right-6 sm:right-16 top-24 sm:top-28 z-10"
       >
@@ -42,8 +54,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="inline-block text-gold text-xs sm:text-sm tracking-[0.35em] uppercase font-semibold mb-6"
-        >
+          className="inline-block text-gold text-sm sm:text-base tracking-[0.25em] uppercase font-medium mt-8 mb-5"> 
           Chennai&apos;s Premium Solar Partner
         </motion.span>
 
@@ -51,11 +62,10 @@ export default function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="font-display font-bold text-4xl sm:text-6xl lg:text-7xl leading-[1.05] max-w-4xl text-white"
-        >
-          Power Your Future with{' '}
+          className="font-display font-extrabold text-5xl sm:text-6xl lg:text-7xl leading-tight max-w-4xl text-gray-900">
           <span className="text-gold-gradient">
-            Smart Solar Solutions
+            Power Your Future with{' '}
+             Smart Solar Solutions
           </span>
         </motion.h1>
 
@@ -63,7 +73,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.25 }}
-          className="text-white/90 text-lg sm:text-xl mt-6 max-w-2xl leading-relaxed"
+          className="text-white text-lg sm:text-xl mt-6 max-w-2xl leading-relaxed"
         >
           Empowering Homes and Businesses with Reliable Solar Energy.
           Save on electricity bills, increase your property's value,
@@ -102,13 +112,16 @@ export default function Hero() {
           {STATS.map((s) => (
             <div
               key={s.label}
-              className="glass backdrop-blur-md bg-white/10 border border-white/10 rounded-2xl p-5 sm:p-6 text-center shadow-xl"
+              className="bg-white/90 backdrop-blur-md border border-gold/20 rounded-2xl p-5 sm:p-6 text-center shadow-xl hover:shadow-2xl transition-all duration-300"
             >
-              <AnimatedCounter
-                value={s.value}
-                suffix={s.suffix}
-              />
-              <p className="text-white/70 text-xs sm:text-sm mt-2 uppercase tracking-wide">
+              <div className="text-gold text-3xl font-bold">
+                <AnimatedCounter
+                  value={s.value}
+                  suffix={s.suffix}
+                />
+              </div>
+
+              <p className="text-gray-600 text-xs sm:text-sm mt-2 uppercase tracking-wide">
                 {s.label}
               </p>
             </div>
@@ -120,8 +133,11 @@ export default function Hero() {
       {/* Scroll Indicator */}
       <motion.div
         animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-gold/80 z-20"
+        transition={{
+          duration: 1,
+          repeat: Infinity,
+        }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-gold z-20"
       >
         <ChevronDown size={30} />
       </motion.div>

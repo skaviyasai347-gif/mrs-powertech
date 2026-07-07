@@ -25,7 +25,7 @@ export default {
       boxShadow: {
         gold: '0 0 40px rgba(212,175,55,0.25)',
         'gold-sm': '0 0 20px rgba(212,175,55,0.15)',
-        glass: '0 8px 32px rgba(0,0,0,0.45)'
+        glass: '0 8px 32px rgba(0,0,0,0.08)'
       },
       backdropBlur: { xs: '2px' },
       animation: {

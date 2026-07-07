@@ -1,6 +1,11 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { CheckCircle2, FileText, ListChecks, IndianRupee } from 'lucide-react'
+import {
+  CheckCircle2,
+  FileText,
+  ListChecks,
+  IndianRupee,
+} from 'lucide-react'
 import SectionHeading from '../ui/SectionHeading'
 import { SUBSIDY_SLABS } from '../../data/siteData'
 
@@ -8,88 +13,188 @@ const ELIGIBILITY = [
   'Indian citizen with a valid electricity connection',
   'Ownership of a suitable rooftop for solar installation',
   'No prior rooftop solar subsidy availed on the same connection',
-  'Valid electricity bill and consumer number'
+  'Valid electricity bill and consumer number',
 ]
 
 const DOCUMENTS = [
-  'Electricity bill (recent)', 'Consumer / customer ID number', 'Aadhaar card',
-  'Bank passbook copy (for subsidy transfer)', 'Roof ownership proof'
+  'Electricity bill (recent)',
+  'Consumer / Customer ID Number',
+  'Aadhaar Card',
+  'Bank Passbook Copy (for subsidy transfer)',
+  'Roof Ownership Proof',
 ]
 
 const PROCESS = [
-  'Register on the national Surya Ghar portal with consumer details',
-  'Get your rooftop feasibility approved by the DISCOM',
+  'Register on the National Surya Ghar Portal with consumer details',
+  'Get rooftop feasibility approval from your DISCOM',
   'Install through an empanelled vendor like MRS Powertech',
   'Submit installation details and net-meter application',
-  'Receive subsidy directly in your bank account after commissioning'
+  'Receive subsidy directly in your bank account',
 ]
 
 export default function SubsidyScheme() {
   return (
-    <section className="section-pad bg-ink-900/40">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="section-pad bg-white relative overflow-hidden">
+
+      {/* Background Decoration */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-gold/10 blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-gold/10 blur-3xl"></div>
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
         <SectionHeading
           eyebrow="Government Scheme"
           title="Pradhan Mantri Surya Ghar Muft Bijli Yojana"
-          subtitle="India's flagship rooftop solar scheme, helping households access free electricity and generous capital subsidy. MRS Powertech manages the entire application on your behalf."
+          subtitle="India's flagship rooftop solar scheme helping households access free electricity and generous government subsidy. MRS Powertech manages the complete application process for you."
         />
 
+        {/* Eligibility & Documents */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
-          <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="card-luxury p-7">
-            <div className="flex items-center gap-3 mb-5">
-              <ListChecks className="text-gold" size={24} />
-              <h3 className="font-display font-semibold text-xl">Who is Eligible</h3>
+
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="rounded-3xl bg-gradient-to-br from-white via-yellow-50 to-white border border-gold/20 shadow-lg p-8"
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <ListChecks className="text-gold" size={28} />
+              <h3 className="font-display text-2xl font-bold text-gray-900">
+                Who is Eligible?
+              </h3>
             </div>
-            <ul className="space-y-3">
-              {ELIGIBILITY.map((e) => (
-                <li key={e} className="flex gap-3 text-sm text-white/70"><CheckCircle2 className="text-gold shrink-0 mt-0.5" size={18} /> {e}</li>
+
+            <ul className="space-y-4">
+              {ELIGIBILITY.map((item) => (
+                <li
+                  key={item}
+                  className="flex gap-3 text-gray-600 leading-7"
+                >
+                  <CheckCircle2
+                    className="text-gold mt-1 shrink-0"
+                    size={20}
+                  />
+                  {item}
+                </li>
               ))}
             </ul>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="card-luxury p-7">
-            <div className="flex items-center gap-3 mb-5">
-              <FileText className="text-gold" size={24} />
-              <h3 className="font-display font-semibold text-xl">Documents Required</h3>
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="rounded-3xl bg-gradient-to-br from-white via-yellow-50 to-white border border-gold/20 shadow-lg p-8"
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <FileText className="text-gold" size={28} />
+              <h3 className="font-display text-2xl font-bold text-gray-900">
+                Documents Required
+              </h3>
             </div>
-            <ul className="space-y-3">
-              {DOCUMENTS.map((d) => (
-                <li key={d} className="flex gap-3 text-sm text-white/70"><CheckCircle2 className="text-gold shrink-0 mt-0.5" size={18} /> {d}</li>
+
+            <ul className="space-y-4">
+              {DOCUMENTS.map((item) => (
+                <li
+                  key={item}
+                  className="flex gap-3 text-gray-600 leading-7"
+                >
+                  <CheckCircle2
+                    className="text-gold mt-1 shrink-0"
+                    size={20}
+                  />
+                  {item}
+                </li>
               ))}
             </ul>
           </motion.div>
+
         </div>
 
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="card-luxury p-7 mb-10">
-          <h3 className="font-display font-semibold text-xl mb-6">Application Process</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-5 gap-4">
+        {/* Process */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="rounded-3xl bg-gradient-to-br from-white via-yellow-50 to-white border border-gold/20 shadow-lg p-8 mb-10"
+        >
+
+          <h3 className="font-display text-2xl font-bold text-gray-900 mb-8">
+            Application Process
+          </h3>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+
             {PROCESS.map((step, i) => (
-              <div key={step} className="relative">
-                <div className="w-9 h-9 rounded-full bg-gold-gradient text-ink-950 font-bold flex items-center justify-center mb-3 text-sm">{i + 1}</div>
-                <p className="text-white/65 text-sm leading-relaxed">{step}</p>
+              <div key={step}>
+
+                <div className="w-11 h-11 rounded-full bg-gold text-white font-bold flex items-center justify-center mb-4 shadow-md">
+                  {i + 1}
+                </div>
+
+                <p className="text-gray-600 leading-7">
+                  {step}
+                </p>
+
               </div>
             ))}
+
           </div>
+
         </motion.div>
 
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="card-luxury p-7 mb-10">
-          <div className="flex items-center gap-3 mb-6">
-            <IndianRupee className="text-gold" size={24} />
-            <h3 className="font-display font-semibold text-xl">Subsidy Chart</h3>
+        {/* Subsidy Chart */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="rounded-3xl bg-gradient-to-br from-white via-yellow-50 to-white border border-gold/20 shadow-lg p-8 mb-10"
+        >
+
+          <div className="flex items-center gap-3 mb-8">
+            <IndianRupee className="text-gold" size={28} />
+            <h3 className="font-display text-2xl font-bold text-gray-900">
+              Government Subsidy
+            </h3>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+
             {SUBSIDY_SLABS.map((slab) => (
-              <div key={slab.capacity} className="rounded-xl border border-gold/15 p-5 text-center">
-                <p className="text-white/50 text-xs uppercase tracking-wide mb-2">{slab.capacity}</p>
-                <p className="font-display text-2xl font-bold text-gold-gradient">&#8377;{slab.subsidy.toLocaleString('en-IN')}</p>
+              <div
+                key={slab.capacity}
+                className="rounded-2xl border border-gold/20 bg-white shadow-md p-6 text-center hover:shadow-xl transition"
+              >
+                <p className="text-gray-500 uppercase text-xs tracking-wider mb-2">
+                  {slab.capacity}
+                </p>
+
+                <p className="text-3xl font-bold text-gold">
+                  ₹{slab.subsidy.toLocaleString('en-IN')}
+                </p>
               </div>
             ))}
+
           </div>
+
         </motion.div>
 
+        {/* CTA */}
         <div className="text-center">
-          <Link to="/calculator" className="btn-gold rounded-full px-8 py-4 inline-block font-semibold">Check Your Subsidy</Link>
+          <Link
+            to="/calculator"
+            className="btn-gold rounded-full px-10 py-4 inline-block font-semibold shadow-lg"
+          >
+            Check Your Subsidy
+          </Link>
         </div>
+
       </div>
     </section>
   )
