@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin
 Disallow: /admin/*
 
-Sitemap: https://www.mrspowertech.in/sitemap.xml
+Sitemap: https://www.mrspowertech.info/sitemap.xml
