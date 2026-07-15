@@ -148,7 +148,7 @@ export default function AdminLayout({children,title}) {
           ">
 
             <img
-              src="/logo.png"
+              src="/logo.jpg"
               alt="logo"
               className="w-8 h-8 object-contain"
             />
