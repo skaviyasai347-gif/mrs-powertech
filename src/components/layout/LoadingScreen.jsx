@@ -18,26 +18,29 @@ export default function LoadingScreen({ visible }) {
           className="
             fixed inset-0
             z-[10000]
-            bg-gradient-to-br from-white via-amber-50 to-yellow-100
-            flex flex-col
+            bg-gradient-to-br
+            from-white
+            via-amber-50
+            to-yellow-100
+            flex
+            flex-col
             items-center
             justify-center
             overflow-hidden
           "
         >
-
           {/* Background Glow */}
           <div
             className="
               absolute
-              w-72 h-72
+              w-72
+              h-72
               rounded-full
-             bg-amber-300/25
+              bg-amber-300/25
               blur-3xl
               animate-pulse
             "
           />
-
 
           {/* Logo Circle */}
           <motion.div
@@ -57,73 +60,81 @@ export default function LoadingScreen({ visible }) {
             }}
             className="
               relative
-              w-28 h-28
+              w-32
+              h-32
               rounded-full
-              border-2 border-yellow-500
-bg-white
-shadow-[0_0_35px_rgba(212,175,55,0.35)]
-              flex items-center
+              border-2
+              border-yellow-500
+              bg-white
+              shadow-[0_0_35px_rgba(212,175,55,0.35)]
+              flex
+              items-center
               justify-center
-              shadow-gold
+              overflow-hidden
             "
           >
-
             {/* Rotating Gold Ring */}
             <div
               className="
-                absolute inset-0
+                absolute
+                inset-0
                 rounded-full
-                border-t-2
-                border-yellow-500
+                border-[3px]
+                border-transparent
+                border-t-yellow-500
                 animate-spin-slow
               "
             />
 
-
-            {/* Logo */}
+            {/* Company Logo */}
             <motion.img
-              src="/logo.png"
+              src="/logo.jpg"
               alt="MRS Powertech"
               className="
-                w-16 h-16
+                w-24
+                h-24
                 object-contain
+                rounded-full
+                relative
+                z-10
               "
               animate={{
-                scale: [1, 1.08, 1],
+                scale: [1, 1.05, 1],
               }}
               transition={{
                 duration: 2,
                 repeat: Infinity,
               }}
-              onError={(e)=>{
-                e.currentTarget.style.display='none'
+              onError={(e) => {
+                console.error("Logo not found");
+                e.currentTarget.style.display = "none";
               }}
             />
-
           </motion.div>
-
-
 
           {/* Brand Name */}
           <motion.p
             initial={{
-              opacity:0,
-              y:15,
+              opacity: 0,
+              y: 15,
             }}
             animate={{
-              opacity:1,
-              y:0,
+              opacity: 1,
+              y: 0,
             }}
             transition={{
-              delay:0.35,
-              duration:0.6,
+              delay: 0.35,
+              duration: 0.6,
             }}
             className="
               mt-7
               font-display
-              bg-gradient-to-r from-yellow-500 via-amber-400 to-yellow-600
-bg-clip-text
-text-transparent
+              bg-gradient-to-r
+              from-yellow-500
+              via-amber-400
+              to-yellow-600
+              bg-clip-text
+              text-transparent
               tracking-[0.35em]
               text-sm
               uppercase
@@ -132,18 +143,16 @@ text-transparent
             MRS Powertech
           </motion.p>
 
-
-
           {/* Tagline */}
           <motion.p
             initial={{
-              opacity:0,
+              opacity: 0,
             }}
             animate={{
-              opacity:1,
+              opacity: 1,
             }}
             transition={{
-              delay:0.6,
+              delay: 0.6,
             }}
             className="
               mt-3
@@ -155,8 +164,6 @@ text-transparent
           >
             Powering Tomorrow With Clean Energy
           </motion.p>
-
-
         </motion.div>
       )}
     </AnimatePresence>

@@ -34,76 +34,56 @@ export default function Footer() {
 
 
         {/* Company */}
-        <div>
+        {/* Company */}
+<div>
+  <div className="flex items-center gap-4 mb-5">
+    <img
+      src="/logo.jpg"
+      alt="MRS Powertech Logo"
+      className="w-16 h-16 object-contain"
+      onError={(e) => {
+        e.currentTarget.src = "/vite.svg";
+      }}
+    />
 
-          <div className="flex items-center gap-3 mb-5">
+    <div>
+      <p className="font-display font-bold text-2xl text-gold-gradient">
+        {COMPANY.name}
+      </p>
 
-            <div
-              className="
-                w-12 h-12 rounded-full
-                bg-white
-                border border-gold/40
-                flex items-center justify-center
-                overflow-hidden
-                shadow-gold
-              "
-            >
+      <p className="text-xs tracking-[0.25em] uppercase text-gray-500">
+        Empowering Life With Solar
+      </p>
+    </div>
+  </div>
 
-              <img
-                src="/logo.png"
-                alt="MRS Powertech logo"
-                className="w-10 h-10 object-contain"
-                onError={(e)=>{
-                  e.currentTarget.src='/vite.svg'
-                }}
-              />
+  <p className="text-gray-600 text-sm leading-relaxed">
+    {COMPANY.tagline}. Premium residential, commercial and industrial
+    solar solutions across Chennai.
+  </p>
 
-            </div>
-
-
-            <p className="font-display font-bold text-xl text-gold-gradient">
-              {COMPANY.name}
-            </p>
-
-          </div>
-
-
-
-          <p className="text-gray-600 text-sm leading-relaxed">
-            {COMPANY.tagline}. Premium residential, commercial and industrial
-            solar solutions across Chennai.
-          </p>
-
-
-
-          <div className="flex gap-3 mt-6">
-
-            {[Facebook, Instagram, Linkedin].map((Icon,i)=>(
-              <a
-                key={i}
-                href="#"
-                className="
-                  w-10 h-10
-                  rounded-full
-                  border border-gold/30
-                  flex items-center justify-center
-                  text-gold
-                  hover:bg-gold
-                  hover:text-white
-                  hover:-translate-y-1
-                  transition-all duration-300
-                "
-              >
-
-                <Icon size={17}/>
-
-              </a>
-            ))}
-
-          </div>
-
-
-        </div>
+  <div className="flex gap-3 mt-6">
+    {[Facebook, Instagram, Linkedin].map((Icon, i) => (
+      <a
+        key={i}
+        href="#"
+        className="
+          w-10 h-10
+          rounded-full
+          border border-gold/30
+          flex items-center justify-center
+          text-gold
+          hover:bg-gold
+          hover:text-white
+          hover:-translate-y-1
+          transition-all duration-300
+        "
+      >
+        <Icon size={17} />
+      </a>
+    ))}
+  </div>
+</div>
 
 
 
@@ -377,17 +357,17 @@ export default function Footer() {
 
 
           <a
-            href="https://saikrishna-powerhouse.base44.app"
+            href="https://growbrooo-software.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
             className="
               font-semibold
-              text-gold
-              hover:text-yellow-600
+              text-green-600
+              hover:text-green-700
               transition-colors
             "
           >
-            SaiKrishna
+            Growbroo
           </a>
 
 
