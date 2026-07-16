@@ -6,7 +6,7 @@ import { FALLBACK_PRODUCTS } from '../data/siteData'
 import SectionHeading from '../components/ui/SectionHeading'
 import EnquiryModal from '../components/ui/EnquiryModal'
 
-const CATEGORIES = ['All', 'Solar Panels', 'Inverters', 'Batteries', 'Accessories']
+const CATEGORIES = ['All', 'Solar Panels', 'Inverters', 'Solar Lights']
 const PAGE_SIZE = 8
 
 export default function Products() {
