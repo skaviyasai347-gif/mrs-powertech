@@ -5,7 +5,7 @@ import { Plus, Pencil, Trash2, X, ImagePlus } from 'lucide-react'
 import AdminLayout from '../../components/admin/AdminLayout'
 import { supabase, publicUrlFor, STORAGE_BUCKETS } from '../../lib/supabase'
 
-const CATEGORIES = ['Solar Panels', 'Inverters', 'Batteries', 'Accessories']
+const CATEGORIES = ['Solar Panels', 'Inverters', 'Solar Lights']
 
 export default function AdminProducts() {
   const [products, setProducts] = useState([])
